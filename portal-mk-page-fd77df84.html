@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>mk体育 – 再次遇见，持续同行</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: #f3f4f6;
+      color: #2d3e50;
+      line-height: 1.7;
+      padding: 2rem 1rem;
+    }
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    /* 顶部导航 */
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #ffffff;
+      padding: 1rem 1.8rem;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+      border: 1px solid #e6e9ef;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+    .navbar .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 600;
+      font-size: 1.3rem;
+      color: #1f2a3a;
+      letter-spacing: 0.3px;
+    }
+    .navbar .brand span {
+      background: #dce1e9;
+      width: 30px;
+      height: 30px;
+      border-radius: 30px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      color: #1f2a3a;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.8rem;
+      font-size: 0.95rem;
+    }
+    .nav-links a {
+      color: #3f4e62;
+      text-decoration: none;
+      transition: color 0.2s;
+      border-bottom: 2px solid transparent;
+      padding-bottom: 4px;
+    }
+    .nav-links a:hover {
+      color: #171f2b;
+      border-bottom-color: #a6b3c4;
+    }
+    .nav-highlight {
+      background: #eef0f3;
+      padding: 0.2rem 1rem;
+      border-radius: 40px;
+      color: #1f2a3a;
+      font-weight: 500;
+    }
+
+    /* hero */
+    .hero {
+      background: #ffffff;
+      border: 1px solid #e2e6ed;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.02);
+      border-radius: 32px;
+      padding: 3rem 2.5rem;
+      margin-bottom: 2.8rem;
+    }
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+      color: #1b2633;
+      margin-bottom: 0.8rem;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      color: #425465;
+      max-width: 780px;
+      margin-bottom: 1.6rem;
+    }
+    .hero .soft-link {
+      display: inline-block;
+      background: #f3f5f8;
+      border-radius: 60px;
+      padding: 0.5rem 1.6rem;
+      border: 1px solid #d5dce5;
+      font-size: 1rem;
+      color: #1f2e40;
+      text-decoration: none;
+      transition: background 0.2s, border 0.2s;
+    }
+    .hero .soft-link:hover {
+      background: #e7ebf0;
+      border-color: #b3bfce;
+    }
+
+    /* 核心介绍 */
+    .intro-card {
+      background: #ffffff;
+      border: 1px solid #e6e9ef;
+      border-radius: 28px;
+      padding: 2.2rem 2.5rem;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.02);
+      margin-bottom: 2.8rem;
+    }
+    .intro-card h2 {
+      font-size: 1.6rem;
+      font-weight: 500;
+      margin-bottom: 1.2rem;
+      color: #1b2a38;
+      letter-spacing: 0.2px;
+    }
+    .intro-card p {
+      margin-bottom: 1rem;
+    }
+
+    /* 三个场景模块 */
+    .scenes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-bottom: 2.8rem;
+    }
+    .scene-item {
+      background: #ffffff;
+      border: 1px solid #e2e6ed;
+      border-radius: 28px;
+      padding: 2rem 1.8rem 2.2rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+      transition: box-shadow 0.2s, transform 0.1s;
+    }
+    .scene-item:hover {
+      box-shadow: 0 10px 24px rgba(0,0,0,0.04);
+      transform: translateY(-2px);
+    }
+    .scene-item .emoji-badge {
+      background: #eef1f6;
+      display: inline-block;
+      width: 48px;
+      height: 48px;
+      line-height: 48px;
+      text-align: center;
+      border-radius: 24px;
+      font-size: 1.5rem;
+      margin-bottom: 1.2rem;
+    }
+    .scene-item h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #1a2c3b;
+      margin-bottom: 0.75rem;
+    }
+    .scene-item p {
+      font-size: 0.95rem;
+      color: #405265;
+    }
+
+    /* 常见说明 */
+    .faq-section {
+      background: #ffffff;
+      border: 1px solid #e6e9ef;
+      border-radius: 28px;
+      padding: 2rem 2.5rem;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.02);
+      margin-bottom: 2.2rem;
+    }
+    .faq-section h2 {
+      font-size: 1.4rem;
+      font-weight: 500;
+      margin-bottom: 1.4rem;
+      color: #1b2a38;
+    }
+    .faq-item {
+      margin-bottom: 1.3rem;
+    }
+    .faq-question {
+      font-weight: 500;
+      color: #1a2f3f;
+      margin-bottom: 0.2rem;
+    }
+    .faq-answer {
+      color: #3b5066;
+      padding-left: 0.2rem;
+    }
+
+    /* 页脚 */
+    .footer-note {
+      text-align: center;
+      color: #6a7b8e;
+      font-size: 0.9rem;
+      padding: 1.8rem 0 0.6rem;
+      border-top: 1px solid #e0e3ea;
+      margin-top: 1rem;
+    }
+    .footer-note a {
+      color: #2f4055;
+      text-decoration: none;
+      border-bottom: 1px dashed #bcc6d4;
+    }
+    .footer-note a:hover {
+      border-bottom-style: solid;
+    }
+
+    /* 响应式 */
+    @media (max-width: 860px) {
+      .scenes-grid {
+        grid-template-columns: 1fr;
+        gap: 1.6rem;
+      }
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.8rem;
+      }
+      .nav-links {
+        flex-wrap: wrap;
+        gap: 1rem 1.4rem;
+      }
+    }
+    @media (max-width: 500px) {
+      .hero, .intro-card, .faq-section {
+        padding: 1.8rem 1.4rem;
+      }
+      .scene-item {
+        padding: 1.5rem 1.2rem;
+      }
+      .hero h1 {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- 顶部导航 -->
+  <nav class="navbar">
+    <div class="brand">
+      <span>⚡</span> mk体育
+    </div>
+    <div class="nav-links">
+      <a href="#">再次访问</a>
+      <a href="#">收藏</a>
+      <a href="#">场景</a>
+      <a href="#">说明</a>
+    </div>
+  </nav>
+
+  <!-- Hero 从再次访问的角度切入 -->
+  <header class="hero">
+    <h1>一段熟悉的路，一个常更新的站点</h1>
+    <p>也许你曾点开过，后来便留在了书签的角落。每一次重新打开 <a href="https://portal-mk-sport.com" style="color:#1b2a38;text-decoration:underline;text-underline-offset:4px;text-decoration-color:#b6c2d2;">mk体育</a>，内容的脉络都会有一些新的变化。它不喧哗，但保持着自己的节奏。</p>
+    <p style="margin-top:-0.2rem; font-size:1rem; color:#596d81;">再次访问，不必刻意；收藏夹里多一个位置，下次遇到会感觉更熟悉。</p>
+    <a href="https://portal-mk-sport.com" class="soft-link">mk体育</a>
+  </header>
+
+  <!-- 核心介绍 – 围绕收藏与持续关注 -->
+  <section class="intro-card">
+    <h2>收藏，是另一种陪伴</h2>
+    <p>当你把<a href="https://portal-mk-sport.com" style="color:#1f3143;font-weight:500;">mk体育</a>加入书签，其实就留下了一个可以偶尔回望的节点。信息总在流动，但这里的内容更新比较平实，不会打破你浏览的惯性。</p>
+    <p>持续关注并不意味着每时每刻都在。隔一段时间回来，版块可能微调，文字风格依旧温和。你不需要记住什么，只需知道它还在那里。</p>
+  </section>
+
+  <!-- 三个场景模块 -->
+  <div class="scenes-grid">
+    <div class="scene-item">
+      <div class="emoji-badge">📖</div>
+      <h3>午后翻阅</h3>
+      <p>打开收藏夹，顺手点开 <a href="https://portal-mk-sport.com" style="color:#1f3143;text-decoration:underline;text-underline-offset:3px;text-decoration-color:#c8d0db;">mk体育</a>，像翻看一本页面干净的小书。不必从头读起，找到感兴趣的那一段就好。</p>
+    </div>
+    <div class="scene-item">
+      <div class="emoji-badge">🔖</div>
+      <h3>随手存下</h3>
+      <p>看到有共鸣的句子或内容，用浏览器自带的书签功能保存。下次打开时，那种“原来在这里”的感觉很自然。</p>
+    </div>
+    <div class="scene-item">
+      <div class="emoji-badge">🗂️</div>
+      <h3>隔周回看</h3>
+      <p>不设闹钟，不记日程。隔一两周再访，页面也许有微调，熟悉的框架依然在。关注本身不必太刻意。</p>
+    </div>
+  </div>
+
+  <!-- 常见说明 (FAQ摘要) -->
+  <section class="faq-section">
+    <h2>一些你可能想知道的</h2>
+    <div class="faq-item">
+      <div class="faq-question">— 我是否需要注册或登录？</div>
+      <div class="faq-answer">不需要。直接访问即可浏览内容，没有额外的身份验证门槛。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">— 内容多久会有变化？</div>
+      <div class="faq-answer">没有固定周期，但会不定时更新。所以偶尔来看看，往往会遇到一些新的文字或模块。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">— 收藏链接会失效吗？</div>
+      <div class="faq-answer">目前域名和结构保持稳定，收藏后长期有效。当然，任何网站都可能调整，建议偶尔确认一下。</div>
+    </div>
+  </section>
+
+  <!-- 页脚 -->
+  <div class="footer-note">
+    <p><a href="https://portal-mk-sport.com">mk体育</a> · 一份安静的线上角落</p>
+    <p style="margin-top:0.6rem; font-size:0.85rem; color:#7c8fa3;">再次访问 · 收藏 · 持续关注</p>
+  </div>
+
+</div>
+</body>
+</html>
