@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+  <title>ayx 介绍 – 轻量导航式指引</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: #f6fafc;
+      color: #1f2a33;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* 顶部导航 */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 0;
+      border-bottom: 1px solid #dce7ed;
+      margin-bottom: 2.2rem;
+      flex-wrap: wrap;
+    }
+    .logo {
+      font-weight: 600;
+      font-size: 1.4rem;
+      letter-spacing: 0.02em;
+      background: linear-gradient(145deg, #2c7a8c, #1f5f6e);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      font-size: 0.95rem;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #2d4b58;
+      font-weight: 500;
+      transition: color 0.2s;
+      border-bottom: 2px solid transparent;
+      padding-bottom: 3px;
+    }
+    .nav-links a:hover {
+      color: #1b7f94;
+      border-bottom-color: #46b3c9;
+    }
+
+    /* hero */
+    .hero {
+      text-align: center;
+      padding: 2.8rem 0 2rem;
+    }
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      background: linear-gradient(135deg, #1f5f6e 20%, #3799b0 70%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.8rem;
+    }
+    .hero p {
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      color: #3b525d;
+      background: #eef5f8;
+      padding: 0.6rem 1.6rem;
+      border-radius: 40px;
+      display: inline-block;
+    }
+
+    /* 介绍区块 – 可信说明 */
+    .intro-block {
+      background: white;
+      border-radius: 24px;
+      padding: 2rem 2.2rem;
+      margin: 2.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02), 0 1px 3px rgba(0, 40, 50, 0.05);
+      border: 1px solid #e2edf2;
+    }
+    .intro-block h2 {
+      font-size: 1.7rem;
+      font-weight: 600;
+      color: #1c5a6a;
+      margin-bottom: 0.75rem;
+      position: relative;
+      display: inline-block;
+    }
+    .intro-block h2::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 48px;
+      height: 4px;
+      background: #46b3c9;
+      border-radius: 4px;
+    }
+    .intro-block p {
+      margin-top: 1.2rem;
+      color: #2a3f49;
+      font-size: 1rem;
+    }
+
+    /* 网格卡片 —— 三个场景模块 */
+    .scenes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.8rem;
+      margin: 2.8rem 0;
+    }
+    .scene-card {
+      background: white;
+      border-radius: 20px;
+      padding: 1.8rem 1.5rem 2rem;
+      box-shadow: 0 2px 10px rgba(0, 40, 50, 0.03);
+      border: 1px solid #deeef4;
+      transition: transform 0.2s, box-shadow 0.25s;
+    }
+    .scene-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(34, 139, 156, 0.08);
+      border-color: #b1dae6;
+    }
+    .scene-card .emoji-badge {
+      display: inline-block;
+      background: #d6edf4;
+      color: #1d6173;
+      font-size: 1.6rem;
+      width: 50px;
+      height: 50px;
+      line-height: 50px;
+      text-align: center;
+      border-radius: 18px;
+      margin-bottom: 0.9rem;
+    }
+    .scene-card h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #1c5a6a;
+      margin-bottom: 0.5rem;
+    }
+    .scene-card p {
+      color: #2f4b58;
+      font-size: 0.95rem;
+    }
+
+    /* 常见说明 FAQ 摘要 */
+    .faq-summary {
+      background: white;
+      border-radius: 24px;
+      padding: 2rem 2.2rem 2.5rem;
+      margin: 3rem 0 2rem;
+      border: 1px solid #dcecf2;
+    }
+    .faq-summary h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #1c5a6a;
+      margin-bottom: 1.4rem;
+      letter-spacing: 0.01em;
+      border-left: 4px solid #46b3c9;
+      padding-left: 0.9rem;
+    }
+    .faq-item {
+      padding: 0.9rem 0;
+      border-bottom: 1px solid #e6f0f4;
+    }
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+    .faq-item strong {
+      display: block;
+      font-weight: 600;
+      color: #1b4f5e;
+      margin-bottom: 0.2rem;
+    }
+    .faq-item p {
+      color: #2e4956;
+      font-size: 0.95rem;
+    }
+
+    /* 内联链接样式 */
+    .inline-link {
+      color: #1b7f94;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px dashed #81c3d6;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .inline-link:hover {
+      color: #0d5668;
+      border-bottom-style: solid;
+      border-color: #2b8da3;
+    }
+
+    /* 尾部 */
+    footer {
+      margin-top: 3.5rem;
+      padding: 1.5rem 0 2.5rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #486f7d;
+      border-top: 1px solid #d2e2e9;
+    }
+
+    /* 移动端微调 */
+    @media (max-width: 680px) {
+      .container { padding: 0 1rem; }
+      nav { flex-direction: column; gap: 0.8rem; }
+      .hero h1 { font-size: 2rem; }
+      .hero p { font-size: 0.95rem; padding: 0.4rem 1.2rem; }
+      .intro-block { padding: 1.5rem; }
+      .faq-summary { padding: 1.5rem; }
+      .scene-card { padding: 1.4rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  
+  <!-- 导航 -->
+  <nav>
+    <span class="logo">◈ m‑panel</span>
+    <div class="nav-links">
+      <a href="#intro">介绍</a>
+      <a href="#scenes">场景</a>
+      <a href="#faq">说明</a>
+    </div>
+  </nav>
+
+  <!-- hero -->
+  <section class="hero">
+    <h1>轻量导航 · 面板说明</h1>
+    <p>站点介绍与可信说明 · 简洁指引</p>
+  </section>
+
+  <!-- 介绍 + 可信说明 -->
+  <section id="intro" class="intro-block">
+    <h2>关于 ayx · 站点视角</h2>
+    <p>
+      这里是 <strong>m-panel-ayx.com</strong> ，一个围绕 <a href="https://m-panel-ayx.com" class="inline-link">ayx</a> 提供基础导航与内容聚合的轻量页面。
+      我们侧重呈现清晰的功能分区，不堆砌复杂模块。无论你是第一次接触还是日常使用，都能快速找到所需信息。
+    </p>
+    <p style="margin-top: 1rem;">
+      页面内容经过整理与校验，保持真实与克制。所有链接与描述均以实用、可信为出发点，不夸大任何效果。
+      你可以放心参考 <a href="https://m-panel-ayx.com" class="inline-link">ayx</a> 所聚合的资料与指引。
+    </p>
+  </section>
+
+  <!-- 三个场景模块 -->
+  <section id="scenes" class="scenes-grid">
+    <div class="scene-card">
+      <div class="emoji-badge">🧭</div>
+      <h3>日常导航</h3>
+      <p>快速定位常用入口与功能模块。页面结构经过梳理，避免信息过载，更适合日常快速查阅。</p>
+    </div>
+    <div class="scene-card">
+      <div class="emoji-badge">📋</div>
+      <h3>内容参考</h3>
+      <p>聚合与 <a href="https://m-panel-ayx.com" class="inline-link">ayx</a> 相关的常见说明与基础介绍，方便新用户了解整体轮廓，也适合回头温习。</p>
+    </div>
+    <div class="scene-card">
+      <div class="emoji-badge">🔄</div>
+      <h3>轻量中转</h3>
+      <p>简洁的页面布局让跳转与浏览更省力。没有多余弹窗或诱导点击，只做干净的导航与信息展示。</p>
+    </div>
+  </section>
+
+  <!-- 常见说明 FAQ 摘要 -->
+  <section id="faq" class="faq-summary">
+    <h2>常见说明 · 摘要</h2>
+    <div class="faq-item">
+      <strong>这个页面提供什么？</strong>
+      <p>主要展示与 <a href="https://m-panel-ayx.com" class="inline-link">ayx</a> 相关的导航卡片与可信介绍。内容保持简洁，不涉及复杂配置。</p>
+    </div>
+    <div class="faq-item">
+      <strong>内容可靠吗？</strong>
+      <p>所有描述均基于实际页面结构与功能，不夸功、不误导。你可以随时通过 <a href="https://m-panel-ayx.com" class="inline-link">ayx</a> 链接验证。</p>
+    </div>
+    <div class="faq-item">
+      <strong>移动端体验如何？</strong>
+      <p>采用响应式网格与弹性排版，手机和平板均可获得不错的阅读与导航体验。卡片间距、字体大小均有适配。</p>
+    </div>
+    <div class="faq-item">
+      <strong>是否有其他隐藏内容？</strong>
+      <p>没有。页面所有可见区块即完整内容，不包含隐藏追踪或诱导弹窗。透明、直接。</p>
+    </div>
+  </section>
+
+  <!-- 底部 -->
+  <footer>
+    <p>基于 ayx 站点构建 · 轻量导航介绍页</p>
+  </footer>
+
+</div>
+</body>
+</html>
